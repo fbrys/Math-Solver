@@ -1,0 +1,107 @@
+#:kivy 2.0
+
+<OptionButton>
+    font_name: "LuckiestGuy"
+    font_size: "40sp"
+    background_color: 1, 1, 1, 0
+    bg_color: 34/255, 139/255, 34/255, 1
+    on_release: app.quiz(self.text, self)
+    canvas.before:
+        Color:
+            rgb: root.bg_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.x, self.y + 5
+            radius: [20]
+
+MDScreen:
+    question: question
+    name: "quiz"
+    MDFloatLayout:
+        Image:
+            source: "assets/background2.png"
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            id: strawberry_image
+            source: "assets/strawberry.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .88, "center_y": .25}
+
+        Image:
+            id: mangga_image
+            source: "assets/mangga.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .12, "center_y": .25}
+
+        MDLabel:
+            id: timer_label
+            text: "15"
+            font_name: "LuckiestGuy"
+            font_size: "57sp"
+            halign: "center"
+            pos_hint: {"center_x": .85, "center_y": .87} #{"center_x": .84, "center_y": .89}
+            color: rgba(251, 187, 29, 255)
+
+        MDLabel:
+            id: question
+            text: ""
+            font_name: "LuckiestGuy"
+            font_size: "60sp"
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .86}
+            color: rgba(251, 187, 29, 255)
+            line_height: 1.1
+
+        MDGridLayout:
+            rows: 2
+            cols: 2
+            size_hint: .4, .3
+            pos_hint: {"center_x": .5, "center_y": .59}
+            spacing: 15
+            OptionButton:
+                id: option1
+            OptionButton:
+                id: option2
+            OptionButton:
+                id: option3
+            OptionButton:
+                id: option4
+
+        Button:
+            text: "Lanjut"
+            font_name: "LuckiestGuy"
+            font_size: "35sp"
+            size_hint: .25, .11 # .25, .10
+            pos_hint: {"center_x": .5, "center_y": .27}
+            color: rgba(251, 187, 29, 255)
+            background_color: 1, 1, 1, 0
+            on_release:
+                app.next_question()
+            canvas.before:
+                Color:
+                    rgb: 1, 1, 1, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [45]
+
+        Button:
+            text: "Keluar"
+            font_name: "LuckiestGuy"
+            font_size: "35sp"
+            size_hint: .25, .11 #.25, .10
+            pos_hint: {"center_x": .5, "center_y": .12}
+            background_color: 1, 1, 1, 0
+            on_release:
+                app.final_score()
+                app.switch_to_start_music()
+            canvas.before:
+                Color:
+                    rgb: rgba(251, 187, 29, 255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [45]

@@ -1,0 +1,74 @@
+#:kivy 2.0
+<SignButton@Button>:
+    background_normal: ''
+    background_down: ''
+    on_release: app.select_sign(self.text)
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+
+MDScreen:
+    name: 'select_sign'
+    MDFloatLayout:
+        Image:
+            source: "assets/background22.png"
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            id: buah_image
+            source: "assets/buah.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .12, "center_y": .25}
+
+        Image:
+            id: tomat_image
+            source: "assets/tomat.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .88, "center_y": .25}
+
+        Button:
+            size_hint: None, None
+            size: 245, 245 #150, 150
+            pos_hint: {"center_x": 0.34, "center_y": 0.72}
+            background_normal: 'assets/pertambahan.png'
+            background_down: 'assets/pertambahan.png'
+            on_release: app.select_sign("+")
+
+        Button:
+            size_hint: None, None
+            size: 245, 170 #150, 75
+            pos_hint: {"center_x": 0.62, "center_y": 0.72}
+            background_normal: 'assets/pengurangan.png'
+            background_down: 'assets/pengurangan.png'
+            on_release: app.select_sign("-")
+
+        Button:
+            size_hint: None, None
+            size: 245, 245 #150, 150
+            pos_hint: {"center_x": 0.34, "center_y": 0.32}
+            background_normal: 'assets/perkalian.png'
+            background_down: 'assets/perkalian.png'
+            on_release: app.select_sign("x")
+
+        Button:
+            size_hint: None, None
+            size: 245, 245 #150, 150
+            pos_hint: {"center_x": 0.62, "center_y": 0.32}
+            background_normal: 'assets/pembagian.png'
+            background_down: 'assets/pembagian.png'
+            on_release: app.select_sign(":")
+
+        Button:
+            size_hint: None, None
+            size: 210, 150 #150, 90
+            pos_hint: {"center_x": 0.12, "center_y": 0.9}
+            background_normal: 'assets/back.png'
+            background_down: 'assets/back.png'
+            on_release:
+                app.switch_to_start_music()
+                root.manager.current = "start"

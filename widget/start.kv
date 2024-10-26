@@ -1,0 +1,30 @@
+#:kivy 2.0
+MDScreen:
+    name: "start"
+    MDFloatLayout:
+
+        Image:
+            source: "assets/background1.png"
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: False
+
+        Button:
+            id: play_button
+            size_hint: None, None
+            size: 4000, 350 #300, 250
+            pos_hint: {"center_x": 0.5, "center_y": 0.15}
+            background_normal: ""
+            background_down: ""
+            background_color: 0, 0, 0, 0
+            on_release:
+                app.switch_to_game_music()
+                root.manager.current = "select_sign"
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    source: "assets/play-button.png"
+                    size: self.size
+                    pos: self.pos

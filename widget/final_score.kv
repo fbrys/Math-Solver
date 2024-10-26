@@ -1,0 +1,84 @@
+#:kivy 2.0
+MDScreen:
+    correct: correct
+    wrong: wrong
+    success_rate: success_rate
+    name: "final_score"
+    MDFloatLayout:
+        Image:
+            source: "assets/background3.png"
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: False
+
+        MDLabel:
+            text: "Final Score!"
+            font_name: "LuckiestGuy"
+            font_size: "55sp"
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .85}
+            color: rgba(251, 187, 29, 255)
+            line_height: 1.1
+
+        Image:
+            id: lemon_image
+            source: "assets/lemon.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .12, "center_y": .25}
+
+
+        Image:
+            id: avocado_image
+            source: "assets/alpukat.png"
+            size_hint: .24, .10 #.18, .3
+            pos_hint: {"center_x": .88, "center_y": .25}
+
+        MDLabel:
+            id: correct
+            text: ""
+            font_name: "LuckiestGuy"
+            font_size: "30sp"
+            halign: "center"
+            size_hint: .8, .12
+            pos_hint: {"center_x": .25, "center_y": .55}
+            color: 1,1,1,1
+            line_height: 1.1
+
+        MDLabel:
+            id: wrong
+            text: ""
+            font_name: "LuckiestGuy"
+            font_size: "30sp"
+            halign: "center"
+            size_hint: .8, .12
+            pos_hint: {"center_x": .5, "center_y": .55}
+            color: 1,1,1,1
+            line_height: 1.1
+
+        MDLabel:
+            id: success_rate
+            text: ""
+            font_name: "LuckiestGuy"
+            font_size: "30sp"
+            halign: "center"
+            size_hint: .8, .12
+            pos_hint: {"center_x": .75, "center_y": .55}
+            color: 1,1,1,1
+            line_height: 1.1
+
+        Button:
+            text: "Coba lagi!"
+            font_name: "LuckiestGuy"
+            font_size: "35sp"
+            size_hint: .4, .12
+            pos_hint: {"center_x": .5, "center_y": .25}
+            background_color: 1,1,1,0
+            on_release:
+                app.replay()
+            canvas.before:
+                Color:
+                    rgba: rgba(251, 187, 29, 255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [45]
