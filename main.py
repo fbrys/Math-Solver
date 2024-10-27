@@ -11,7 +11,7 @@ from kivy.animation import Animation
 from kivy.clock import Clock
 import random
 
-Window.size = (2040, 1080)
+Window.size = (Window.width, Window.height)
 
 class SignButton(Button):
     bg_color = ListProperty([1, 1, 1, 1])
