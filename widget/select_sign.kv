@@ -1,5 +1,5 @@
 #:kivy 2.0
-<SignButton@Button>:
+<SignButton>:
     background_normal: ''
     background_down: ''
     on_release: app.select_sign(self.text)
@@ -16,19 +16,21 @@ MDScreen:
         Image:
             source: "assets/background22.png"
             size_hint: 1, 1
-            allow_stretch: True
-            keep_ratio: False
+            fit_mode: "cover"
 
         Image:
             id: buah_image
             source: "assets/buah.png"
-            size_hint: .24, .10 #.18, .3
+            # size_hint: 4.18, 4.3 #.18, .3
+            # size_hint: None, None
+            size: (500, 494) # 700, 694 # 200, 194
             pos_hint: {"center_x": .12, "center_y": .25}
 
         Image:
             id: tomat_image
             source: "assets/tomat.png"
-            size_hint: .24, .10 #.18, .3
+            # size_hint: None, None#.24, 1 #.18, .3
+            size:  (496, 500) #196,200
             pos_hint: {"center_x": .88, "center_y": .25}
 
         Button:
@@ -65,7 +67,7 @@ MDScreen:
 
         Button:
             size_hint: None, None
-            size: 210, 150 #150, 90
+            size: 260, 200 #150, 90
             pos_hint: {"center_x": 0.12, "center_y": 0.9}
             background_normal: 'assets/back.png'
             background_down: 'assets/back.png'

@@ -11,7 +11,7 @@ from kivy.animation import Animation
 from kivy.clock import Clock
 import random
 
-Window.size = (Window.width, Window.height)
+Window.size = (2040, 1080)
 
 class SignButton(Button):
     bg_color = ListProperty([1, 1, 1, 1])
@@ -60,8 +60,8 @@ class MathSolver(MDApp):
     def animate_play_button(self):
         play_button = screen_manager.get_screen("start").ids.play_button
         animation = (
-            Animation(size=(320, 270), duration=0.8) +
-            Animation(size=(300, 250), duration=0.8)
+            Animation(size=(420, 370), duration=0.8) +
+            Animation(size=(400, 350), duration=0.8)
         )
         animation.repeat = True
         animation.start(play_button)
@@ -69,7 +69,7 @@ class MathSolver(MDApp):
     def animate_buah_tomat(self):
         buah = screen_manager.get_screen("select_sign").ids.buah_image
         buah_animation = (
-            Animation(pos_hint={"center_y": .30}, duration=1) +
+            Animation(pos_hint={"center_y": .32}, duration=1) +
             Animation(pos_hint={"center_y": .25}, duration=1)
         )
         buah_animation.repeat = True
@@ -77,7 +77,7 @@ class MathSolver(MDApp):
 
         tomat = screen_manager.get_screen("select_sign").ids.tomat_image
         tomat_animation = (
-            Animation(pos_hint={"center_y": .30}, duration=1) +
+            Animation(pos_hint={"center_y": .32}, duration=1) +
             Animation(pos_hint={"center_y": .25}, duration=1)
         )
         tomat_animation.repeat = True
@@ -86,7 +86,7 @@ class MathSolver(MDApp):
     def animate_buah_strawberry(self):
         strbr = screen_manager.get_screen("quiz").ids.strawberry_image
         strawberry_animation = (
-            Animation(pos_hint={"center_y": .30}, duration=1) +
+            Animation(pos_hint={"center_y": .32}, duration=1) +
             Animation(pos_hint={"center_y": .25}, duration=1)
         )
         strawberry_animation.repeat = True
@@ -94,7 +94,7 @@ class MathSolver(MDApp):
 
         mngga = screen_manager.get_screen("quiz").ids.mangga_image
         mangga_animation = (
-            Animation(pos_hint={"center_y": .30}, duration=1) +
+            Animation(pos_hint={"center_y": .32}, duration=1) +
             Animation(pos_hint={"center_y": .25}, duration=1)
         )
         mangga_animation.repeat = True

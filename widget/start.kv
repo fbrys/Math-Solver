@@ -6,13 +6,12 @@ MDScreen:
         Image:
             source: "assets/background1.png"
             size_hint: 1, 1
-            allow_stretch: True
-            keep_ratio: False
+            fit_mode: "cover"
 
         Button:
             id: play_button
             size_hint: None, None
-            size: 4000, 350 #300, 250
+            size: 1,1 #2,2#600, 550 #300, 250
             pos_hint: {"center_x": 0.5, "center_y": 0.15}
             background_normal: ""
             background_down: ""

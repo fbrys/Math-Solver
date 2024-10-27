@@ -21,19 +21,20 @@ MDScreen:
         Image:
             source: "assets/background2.png"
             size_hint: 1, 1
-            allow_stretch: True
-            keep_ratio: False
+            fit_mode: "cover"
 
         Image:
             id: strawberry_image
             source: "assets/strawberry.png"
-            size_hint: .24, .10 #.18, .3
+            # size_hint: .24, 1#.18, .3?
+            size: (426, 500) #126,200
             pos_hint: {"center_x": .88, "center_y": .25}
 
         Image:
             id: mangga_image
             source: "assets/mangga.png"
-            size_hint: .24, .10 #.18, .3
+            # size_hint: .24, 1 #.18, .3?
+            size: (426, 500) #126,200
             pos_hint: {"center_x": .12, "center_y": .25}
 
         MDLabel:
